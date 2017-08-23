@@ -1,5 +1,6 @@
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -13,11 +14,12 @@ public class ReaderTest {
         FileParser parseer = new FileParser();
         Encryption encryption = new Encryption();
         List<String> lines = parseer.readSmallTextFile(FILE_NAME);
-
+        ArrayList<String> lines3 = new ArrayList<>();
         for(int i = 0; i < lines.size(); i ++){
             System.out.println(lines.get(i));
+            lines3.add(lines.get(i).toUpperCase());
         }
-       List<String> lines2 = encryption.encrypt(lines);
+       List<String> lines2 = encryption.encrypt(lines3);
         for(int i = 0; i < lines2.size(); i ++){
             System.out.println(lines2.get(i));
         }

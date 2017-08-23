@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 /**
  * Created by Khalil Jones on 8/23/2017.
@@ -24,9 +25,10 @@ public class Encryption {
     }
 
     public List<String> encrypt(List<String> words){
+        Random r = new Random();
         for(int i = 0; i < words.size(); i ++){
             for(int k = 0; k < words.get(i).length(); k++){
-            keyArray.add((int) Math.random()*26);
+            keyArray.add(r.nextInt(26));
             }
         }
         for(int i = 0; i < words.size(); i ++){
@@ -38,14 +40,14 @@ public class Encryption {
             }
         }
         for(int i = 0; i < charactersInInts.size(); i++){
-             encryptedInts.add( charactersInInts.get(i) + keyArray.get(i) %26 );
+             encryptedInts.add( (charactersInInts.get(i) + keyArray.get(i)) %26 +charactersInInts.get(i));
         }
 
         for(int i = 0; i < encryptedInts.size(); i ++){
             encryptedChars.add((char)((int) encryptedInts.get(i)));
         }
         for(int i = 0; i < encryptedChars.size(); i ++) {
-            String encryptedWord= "";
+
             encryptedWord = encryptedWord + encryptedChars.get(i);
 
         }
