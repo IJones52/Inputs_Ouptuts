@@ -11,12 +11,17 @@ public class ReaderTest {
 
     public static void main(String[] args) throws IOException{
         FileParser parseer = new FileParser();
+        Encryption encryption = new Encryption();
         List<String> lines = parseer.readSmallTextFile(FILE_NAME);
+
         for(int i = 0; i < lines.size(); i ++){
             System.out.println(lines.get(i));
         }
-
-        parseer.writeSmallTextFile(lines, OUTPUT_FILE_NAME);
+       List<String> lines2 = encryption.encrypt(lines);
+        for(int i = 0; i < lines2.size(); i ++){
+            System.out.println(lines2.get(i));
+        }
+        parseer.writeSmallTextFile(lines2, OUTPUT_FILE_NAME);
 
     }
 }
