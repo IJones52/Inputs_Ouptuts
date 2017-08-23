@@ -19,7 +19,6 @@ public class FileParser{
 
     List<String> readSmallTextFile(String aFileName) throws IOException {
         Path path = Paths.get(aFileName);
-
         return Files.readAllLines(path, ENCODING);
     }
     void writeSmallTextFile(List<String> aLines, String aFileName) throws IOException {
